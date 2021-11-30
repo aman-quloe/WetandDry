@@ -19,6 +19,7 @@ const width = Dimensions.get('window').width;
 
 import logo from '../assets/logo2.png';
 import img from '../assets/img10.png';
+import img2 from '../assets/img21.png';
 import anxiety from '../assets/img11.png';
 import allergies from '../assets/img12.png';
 import sunburn from '../assets/img13.png';
@@ -40,17 +41,17 @@ import {Card} from 'react-native-shadow-cards';
 
 const images = [{LoginImage}, {LoginImage}, {LoginImage}];
 
-const Home = ({navigation}) => {
-  // const [active, setActive] = useState(0);
+const AskQuery = () => {
+  const [active, setActive] = useState(0);
 
-  // const change = ({nativeEvent}) => {
-  //   const slide = Math.ceil(
-  //     nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
-  //   );
-  //   if (slide !== active) {
-  //     setActive(slide);
-  //   }
-  // };
+  const change = ({nativeEvent}) => {
+    const slide = Math.ceil(
+      nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
+    );
+    if (slide !== active) {
+      setActive(slide);
+    }
+  };
   return (
     <>
       <View style={styles.screen}>
@@ -85,7 +86,7 @@ const Home = ({navigation}) => {
             <View style={{alignItems: 'center', paddingHorizontal: 10}}>
               <View style={{width: 348, height: 160, margin: 10}}>
                 <ImageBackground
-                  source={img}
+                  source={img2}
                   style={{
                     width: '100%',
                     height: 150,
@@ -95,17 +96,26 @@ const Home = ({navigation}) => {
                   <View style={{width: '40%', alignItems: 'center'}}>
                     <Text
                       style={{
-                        color: '#ffff',
-                        fontSize: 16,
-                        marginLeft: '10%',
-                        padding: 4,
-                        fontWeight: '700',
+                        color: 'black',
+                        fontSize: 8,
+                        marginLeft: '12%',
+                        padding: 2,
                       }}>
-                      Health is wealth
+                      Ask Query to Qualified Experts
                     </Text>
                     <Text
                       style={{
-                        color: '#ffff',
+                        color: 'black',
+                        fontSize: 12,
+                        marginLeft: '10%',
+                        padding: 4,
+                        fontWeight: '900',
+                      }}>
+                      To Get Your Solution
+                    </Text>
+                    <Text
+                      style={{
+                        color: 'black',
                         fontSize: 8,
                         marginLeft: '12%',
                         padding: 2,
@@ -113,38 +123,101 @@ const Home = ({navigation}) => {
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry.
                     </Text>
+                    <TouchableOpacity
+                      style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderWidth: 1,
+                        borderColor: 'black',
+                        borderRadius: 8,
+                        width: '70%',
+                        height: 30,
+                      }}>
+                      <Text style={{fontSize: 8, fontWeight: '700'}}>
+                        Ask Your Questions
+                      </Text>
+                    </TouchableOpacity>
                   </View>
                 </ImageBackground>
               </View>
 
-              <Card
+              <View
                 style={{
+                  display: 'flex',
                   flexDirection: 'row',
-                  paddingHorizontal: 10,
-                  borderRadius: 7,
-                  width: 300,
-                  alignSelf: 'center',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                 }}>
+                <Card
+                  style={{
+                    flexDirection: 'row',
+                    paddingHorizontal: 10,
+                    borderRadius: 5,
+                    height: 42,
+                    width: '40%',
+                    alignSelf: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}>
+                  <TextInput placeholder="Type Your Query"></TextInput>
+                </Card>
+                <Card
+                  style={{
+                    height: 42,
+                    marginHorizontal: 15,
+                    flexDirection: 'row',
+                    paddingHorizontal: 10,
+                    borderRadius: 5,
+                    width: '36%',
+                    alignSelf: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}>
+                  <TextInput placeholder="Select speciality"></TextInput>
+                  <View style={{flexDirection: 'row'}}>
+                    <AntDesign name="down" size={16} color="grey" />
+                  </View>
+                </Card>
                 <AntDesign name="search1" size={24} color="grey" />
-                <TextInput></TextInput>
-                <View style={{flexDirection: 'row'}}>
-                  <Feather name="mic" size={20} color="#485ba7" />
-
-                  <Evillcons name="location" size={25} color="#485ba7" />
-                </View>
-              </Card>
+              </View>
               <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                 <Card
                   style={{
+                    flexDirection: 'row',
+                    marginHorizontal: 15,
                     alignItems: 'center',
-                    width: width / 3,
-                    height: 160,
+                    width: '90%',
+                    height: 85,
                     padding: 10,
                     margin: 10,
-                    borderRadius: 10,
+                    borderRadius: 12,
                   }}>
+                  <View style={{width: '80%'}}>
+                    <Text
+                      style={{
+                        width: '85%',
+                        fontSize: 10,
+                        fontWeight: '500',
+                        color: 'black',
+                      }}>
+                      My stool smells extremely foul, almost rancid. What could
+                      be wrong
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 10,
+                      }}>
+                      October 23, 2021
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 8,
+                        color: 'black',
+                      }}>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry.
+                    </Text>
+                  </View>
                   <Image
                     source={anxiety}
                     style={{
@@ -153,161 +226,105 @@ const Home = ({navigation}) => {
                       resizeMode: 'contain',
                       margin: 5,
                     }}></Image>
-                  <Text style={{fontWeight: '600', color: '#485ba7'}}>
-                    Anxiety
-                  </Text>
-                  <Text
-                    style={{textAlign: 'center', fontSize: 8, color: 'black'}}>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate('AskQuery', {name: 'AskQuery'})
-                    }
-                    style={{
-                      backgroundColor: '#25aade',
-                      width: 70,
-                      margin: 15,
-                      height: 20,
-                      borderRadius: 20,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                    <Text style={{fontSize: 10, color: '#fff'}}>Load More</Text>
-                  </TouchableOpacity>
-                </Card>
-
-                <Card
-                  style={{
-                    alignItems: 'center',
-                    width: width / 3,
-                    height: 160,
-                    padding: 10,
-                    margin: 10,
-                    borderRadius: 10,
-                  }}>
-                  <Image
-                    source={allergies}
-                    style={{
-                      width: 50,
-                      height: 50,
-                      resizeMode: 'contain',
-                      margin: 5,
-                    }}></Image>
-                  <Text style={{fontWeight: '600', color: '#485ba7'}}>
-                    Allergies
-                  </Text>
-                  <Text
-                    style={{textAlign: 'center', fontSize: 8, color: 'black'}}>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate('TrackHealth', {name: 'TrackHealth'})
-                    }
-                    style={{
-                      backgroundColor: '#25aade',
-                      width: 70,
-                      margin: 15,
-                      height: 20,
-                      borderRadius: 20,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                    <Text style={{fontSize: 10, color: '#fff'}}>Load More</Text>
-                  </TouchableOpacity>
                 </Card>
               </View>
               <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                 <Card
                   style={{
+                    flexDirection: 'row',
+                    marginHorizontal: 15,
                     alignItems: 'center',
-                    width: width / 3,
-                    height: 160,
+                    width: '90%',
+                    height: 85,
                     padding: 10,
                     margin: 10,
-                    borderRadius: 10,
+                    borderRadius: 12,
                   }}>
+                  <View style={{width: '80%'}}>
+                    <Text
+                      style={{
+                        width: '85%',
+                        fontSize: 10,
+                        fontWeight: '500',
+                        color: 'black',
+                      }}>
+                      Symptoms of indigestion
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 10,
+                      }}>
+                      October 23, 2021
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 8,
+                        color: 'black',
+                      }}>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry.
+                    </Text>
+                  </View>
                   <Image
-                    source={sunburn}
+                    source={anxiety}
                     style={{
                       width: 50,
                       height: 50,
                       resizeMode: 'contain',
                       margin: 5,
                     }}></Image>
-                  <Text style={{fontWeight: '600', color: '#485ba7'}}>
-                    Sunburn
-                  </Text>
-                  <Text
-                    style={{textAlign: 'center', fontSize: 8, color: 'black'}}>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate('ContactUs', {name: 'ContactUs'})
-                    }
-                    style={{
-                      backgroundColor: '#25aade',
-                      width: 70,
-                      margin: 15,
-                      height: 20,
-                      borderRadius: 20,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                    <Text style={{fontSize: 10, color: '#fff'}}>Load More</Text>
-                  </TouchableOpacity>
-                </Card>
-                <Card
-                  style={{
-                    alignItems: 'center',
-                    width: width / 3,
-                    height: 160,
-                    padding: 10,
-                    margin: 10,
-                    borderRadius: 10,
-                  }}>
-                  <Image
-                    source={menstruation}
-                    style={{
-                      width: 50,
-                      height: 50,
-                      resizeMode: 'contain',
-                      margin: 5,
-                    }}></Image>
-                  <Text style={{fontWeight: '600', color: '#485ba7'}}>
-                    Menstruation
-                  </Text>
-                  <Text
-                    style={{textAlign: 'center', fontSize: 8, color: 'black'}}>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() =>
-                      navigation.navigate('AboutUs', {name: 'AboutUs'})
-                    }
-                    style={{
-                      backgroundColor: '#25aade',
-                      width: 70,
-                      margin: 15,
-                      height: 20,
-                      borderRadius: 20,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}>
-                    <Text style={{fontSize: 10, color: '#fff'}}>Load More</Text>
-                  </TouchableOpacity>
                 </Card>
               </View>
+              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                <Card
+                  style={{
+                    flexDirection: 'row',
+                    marginHorizontal: 15,
+                    alignItems: 'center',
+                    width: '90%',
+                    height: 85,
+                    padding: 10,
+                    margin: 10,
+                    borderRadius: 12,
+                  }}>
+                  <View style={{width: '80%'}}>
+                    <Text
+                      style={{
+                        width: '85%',
+                        fontSize: 10,
+                        fontWeight: '500',
+                        color: 'black',
+                      }}>
+                      Constipation - Magnesium Citrate
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 10,
+                      }}>
+                      October 23, 2021
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 8,
+                        color: 'black',
+                      }}>
+                      Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry.
+                    </Text>
+                  </View>
+                  <Image
+                    source={anxiety}
+                    style={{
+                      width: 50,
+                      height: 50,
+                      resizeMode: 'contain',
+                      margin: 5,
+                    }}></Image>
+                </Card>
+              </View>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'center'}}></View>
               <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate('Products', {name: 'Products'})
-                }
                 style={{
                   backgroundColor: 'red',
                   width: 100,
@@ -319,341 +336,6 @@ const Home = ({navigation}) => {
                 }}>
                 <Text style={{color: '#fff'}}>Load More</Text>
               </TouchableOpacity>
-            </View>
-            <View
-              style={{
-                width: width,
-                height: 270,
-                backgroundColor: '#485ba7',
-                padding: 20,
-              }}>
-              <Text style={{color: '#ffff'}}>Articles from Health Experts</Text>
-
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <View style={{flexDirection: 'row'}}>
-                  <View
-                    style={{
-                      alignItems: 'center',
-                      width: width / 2,
-                      backgroundColor: '#ffff',
-                      height: 180,
-                      padding: 5,
-                      margin: 10,
-                      borderWidth: 1,
-                      borderRadius: 10,
-                    }}>
-                    <Image
-                      source={LoginImage}
-                      style={{
-                        width: width,
-                        height: 110,
-                        resizeMode: 'contain',
-                      }}></Image>
-                    <View style={{padding: 5, alignSelf: 'flex-start'}}>
-                      <Text
-                        style={{
-                          color: '#4090ff',
-                          fontWeight: '500',
-                          fontSize: 12,
-                        }}>
-                        Health Tips
-                      </Text>
-                      <Text style={{fontSize: 8}}>
-                        {' '}
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: 13,
-                          color: 'black',
-                          fontWeight: '600',
-                        }}>
-                        Dr. Vashi
-                      </Text>
-                    </View>
-                  </View>
-                  <View
-                    style={{
-                      alignItems: 'center',
-                      width: width / 2,
-                      backgroundColor: '#ffff',
-                      height: 180,
-                      padding: 5,
-                      margin: 10,
-                      borderWidth: 1,
-                      borderRadius: 10,
-                    }}>
-                    <Image
-                      source={LoginImage}
-                      style={{
-                        width: width,
-                        height: 110,
-                        resizeMode: 'contain',
-                      }}></Image>
-                    <View style={{padding: 5, alignSelf: 'flex-start'}}>
-                      <Text
-                        style={{
-                          color: '#4090ff',
-                          fontWeight: '500',
-                          fontSize: 12,
-                        }}>
-                        Health Tips
-                      </Text>
-                      <Text style={{fontSize: 8}}>
-                        {' '}
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: 13,
-                          color: 'black',
-                          fontWeight: '600',
-                        }}>
-                        Dr. Vashi
-                      </Text>
-                    </View>
-                  </View>
-                  <View
-                    style={{
-                      alignItems: 'center',
-                      width: width / 2,
-                      backgroundColor: '#ffff',
-                      height: 180,
-                      padding: 5,
-                      margin: 10,
-                      borderWidth: 1,
-                      borderRadius: 10,
-                    }}>
-                    <Image
-                      source={LoginImage}
-                      style={{
-                        width: width,
-                        height: 110,
-                        resizeMode: 'contain',
-                      }}></Image>
-                    <View style={{padding: 5, alignSelf: 'flex-start'}}>
-                      <Text
-                        style={{
-                          color: '#4090ff',
-                          fontWeight: '500',
-                          fontSize: 12,
-                        }}>
-                        Health Tips
-                      </Text>
-                      <Text style={{fontSize: 8}}>
-                        {' '}
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: 13,
-                          color: 'black',
-                          fontWeight: '600',
-                        }}>
-                        Dr. Vashi
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </ScrollView>
-            </View>
-
-            <View style={{paddingHorizontal: 15}}>
-              <View
-                style={{
-                  marginVertical: 20,
-                  borderRadius: 30,
-                  width: width / 1.1,
-                  height: 200,
-                  backgroundColor: '#e9eef7',
-                  padding: 20,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <View>
-                    <View style={{width: width / 2.6}}>
-                      <Text style={{fontSize: 20, fontWeight: '700'}}>
-                        Community Forum
-                      </Text>
-                    </View>
-                    <TouchableOpacity
-                      onPress={() =>
-                        navigation.navigate('Feedback', {name: 'Feedback'})
-                      }
-                      style={{
-                        backgroundColor: '#25aade',
-                        width: width / 3,
-                        height: 30,
-                        marginVertical: 10,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
-                      <Text style={{fontSize: 10, color: '#fff'}}>
-                        Submit Your Questions
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View>
-                    <Image
-                      source={social}
-                      style={{
-                        width: width / 2.6,
-                        height: 190,
-                        resizeMode: 'contain',
-                      }}></Image>
-                  </View>
-                </View>
-              </View>
-
-              <Text
-                style={{
-                  marginLeft: 25,
-                  color: 'black',
-                  fontSize: 18,
-                  alignSelf: 'flex-start',
-                  fontWeight: '600',
-                }}>
-                Our Testimonials
-              </Text>
-              <View style={{width: width / 2}}>
-                <Text style={{marginLeft: 25, fontSize: 8, color: 'black'}}>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </Text>
-              </View>
-              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                <View
-                  style={{
-                    alignItems: 'center',
-                    width: width / 2.5,
-                    height: 250,
-                    padding: 5,
-                  }}>
-                  <Image
-                    source={kalpana}
-                    style={{
-                      width: '100%',
-                      height: 180,
-                      resizeMode: 'contain',
-                    }}></Image>
-                  <View style={{padding: 6}}>
-                    <Text
-                      style={{
-                        fontWeight: '500',
-                        color: 'black',
-                        fontSize: 12,
-                        alignSelf: 'flex-start',
-                      }}>
-                      Kalpana Singh
-                    </Text>
-                    <Text style={{fontSize: 8, color: 'black'}}>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
-                    </Text>
-                  </View>
-                </View>
-                <View
-                  style={{
-                    alignItems: 'center',
-                    width: width / 2.5,
-                    height: 250,
-                    padding: 5,
-                  }}>
-                  <Image
-                    source={sumit}
-                    style={{
-                      width: '100%',
-                      height: 180,
-                      resizeMode: 'contain',
-                    }}></Image>
-                  <View style={{padding: 6}}>
-                    <Text
-                      style={{
-                        fontWeight: '500',
-                        color: 'black',
-                        fontSize: 12,
-                        alignSelf: 'flex-start',
-                      }}>
-                      Sumit Sharma
-                    </Text>
-                    <Text style={{fontSize: 8, color: 'black'}}>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                <View
-                  style={{
-                    alignItems: 'center',
-                    width: width / 2.5,
-                    height: 250,
-                    padding: 5,
-                  }}>
-                  <Image
-                    source={yashvant}
-                    style={{
-                      width: '100%',
-                      height: 180,
-                      resizeMode: 'contain',
-                    }}></Image>
-                  <View style={{padding: 6}}>
-                    <Text
-                      style={{
-                        fontWeight: '500',
-                        color: 'black',
-                        fontSize: 12,
-                        alignSelf: 'flex-start',
-                      }}>
-                      Yashvant Verma
-                    </Text>
-                    <Text style={{fontSize: 8, color: 'black'}}>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
-                    </Text>
-                  </View>
-                </View>
-                <View
-                  style={{
-                    alignItems: 'center',
-                    width: width / 2.5,
-                    height: 250,
-                    padding: 5,
-                  }}>
-                  <Image
-                    source={jasmine}
-                    style={{
-                      width: '100%',
-                      height: 180,
-                      resizeMode: 'contain',
-                    }}></Image>
-                  <View style={{padding: 6}}>
-                    <Text
-                      style={{
-                        fontWeight: '500',
-                        color: 'black',
-                        fontSize: 12,
-                        alignSelf: 'flex-start',
-                      }}>
-                      Jasmine
-                    </Text>
-                    <Text style={{fontSize: 8, color: 'black'}}>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
-                    </Text>
-                  </View>
-                </View>
-              </View>
             </View>
 
             <View
@@ -991,7 +673,7 @@ const Home = ({navigation}) => {
   );
 };
 
-export default Home;
+export default AskQuery;
 
 const styles = StyleSheet.create({
   screen: {
